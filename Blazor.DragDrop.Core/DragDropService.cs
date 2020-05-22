@@ -86,7 +86,7 @@ namespace Blazor.DragDrop.Core
             bool allowSwap = _dropzoneOptions[targetDropzoneId].AllowSwap;
             var orderPosition = GetOrderPosition(targetDropzoneId, ActiveItem.Id);
 
-            if (targetDropzoneId == ActiveItem.DropzoneId)
+            if (targetDropzoneId == ActiveItem.OriginDropzoneId)
             {
 
                 //inform about the drop
@@ -132,6 +132,7 @@ namespace Blazor.DragDrop.Core
 
             //assign new dropzone
             ActiveItem.DropzoneId = targetDropzoneId;
+            ActiveItem.OriginDropzoneId = targetDropzoneId;
 
             //inform about the drop
             ActiveItem.OnDrop?.Invoke(ActiveItem.Tag, orderPosition);
