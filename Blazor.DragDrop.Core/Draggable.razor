@@ -23,6 +23,7 @@
             AllowDrag = AllowDrag,
             Name = Name,
             OnDrop = OnDrop,
+            OnMove = OnMove,
             OtherAttributes = AllOtherAttributes
         };
 
@@ -49,6 +50,9 @@
 
     [Parameter]
     public Action<dynamic, int> OnDrop { get; set; }
+
+    [Parameter]
+    public Action<DraggableItem> OnMove { get; set; }
 
     /// <summary>
     /// Allows to pass a delegate which determines if element can be dragged
